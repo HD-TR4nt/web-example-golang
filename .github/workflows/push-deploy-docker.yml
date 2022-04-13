@@ -35,4 +35,3 @@ jobs:
           script: |
             docker rm -f web-example-golang && docker rmi tr4nt0/web-example-golang:latest
             docker-compose -f ${{ secrets.VM_DIRECTORY }}/docker-compose.yml up -d
-					
