@@ -3,6 +3,6 @@ version: '3'
 services:
   web:
     #build: .
-    image: ${{ secrets.DOCKERHUB_USERNAME }}/web-example-golang:latest
+    image: tr4nt0/web-example-golang:latest
     ports:
     - "8080:8080"
