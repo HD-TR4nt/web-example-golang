@@ -1,6 +1,6 @@
 # Base on https://github.com/marketplace/actions/build-and-push-docker-images
 
-name: docker push and deploy 
+name: Docker push and deploy 
 
 on:
   push:
@@ -8,7 +8,7 @@ on:
       - 'Master'
 
 jobs:
-  docker:
+  Docker-build:
     runs-on: ubuntu-latest
     steps:
       - name: Set up QEMU
@@ -25,6 +25,9 @@ jobs:
         with:
           push: true
           tags: tr4nt0/web-example-golang:latest
+  Deploy-container:
+    runs-on: ubuntu-latest
+    steps:
       - name: Deploy app on docker
         uses: appleboy/ssh-action@master
         with:
