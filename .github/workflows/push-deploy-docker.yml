@@ -23,7 +23,6 @@ jobs:
       - name: Build and push
         uses: docker/build-push-action@v2
         with:
-          context: .
           push: true
           tags: tr4nt0/web-example-golang:latest
       - name: Deploy app on docker
