@@ -26,6 +26,7 @@ jobs:
           push: true
           tags: tr4nt0/web-example-golang:latest
   Deploy-container:
+    needs: Docker-build
     runs-on: ubuntu-latest
     steps:
       - name: Deploy app on docker
@@ -36,5 +37,5 @@ jobs:
           password: ${{ secrets.VM_PASSWORD }}
           port: ${{ secrets.VM_PORT }}
           script: |
-            docker rm -f web-example-golang && docker rmi tr4nt0/web-example-golang:latest
+            docker rm -f web-example-golang && docker rmi -f tr4nt0/web-example-golang:latest
             docker-compose -f ${{ secrets.VM_DIRECTORY }}/docker-compose.yml up -d
